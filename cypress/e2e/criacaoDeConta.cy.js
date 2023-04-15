@@ -18,10 +18,10 @@ describe("Criação de nova conta", () => {
     let email = faker.internet.email();
     emailJaCadastrado = email;
     minhaContaPage.preencheEmailSenha(email, dados.senha);
-    minhaContaPage.verificaSucesso();
+    minhaContaPage.verificaSucesso(email);
   });
 
-  it("deve impedir criação de conta com email inválido", () => {
+  it.only("deve impedir criação de conta com email inválido", () => {
     let email = "teste";
     minhaContaPage.preencheEmailSenha(email, dados.senha);
     minhaContaPage.verificaFalha();

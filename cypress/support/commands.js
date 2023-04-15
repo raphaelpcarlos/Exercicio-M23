@@ -9,6 +9,7 @@ Cypress.Commands.add("adicionaProduto", () => {
     method: "POST",
     body: fd,
   }).then((resp) => {
+// Resultado esperado= Confirma o status 200 do retorno da integração
     expect(resp.status).to.eq(200);
   });
 });
@@ -39,6 +40,7 @@ Cypress.Commands.add("checkout", (nome, sobrenome, pais, rua, cidade, estado, ce
     method: "POST",
     body: fd,
   }).then((resp) => {
+ // Resultado esperado= Confirma o status 200 do retorno da integração
     expect(resp.status).to.eq(200);
   });
 }

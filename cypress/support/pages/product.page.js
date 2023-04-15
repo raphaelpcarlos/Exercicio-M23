@@ -1,3 +1,5 @@
+/// <reference types= "cypress" />
+
 class Product {
   compraProduto() {
     cy.get('.button-variable-item-XS').click();
@@ -6,8 +8,9 @@ class Product {
   }
 
   validaMensagemAdicionado(mensagem) {
-    cy.get(".woocommerce-message").should('have.text', mensagem);
-
+    cy.get(".woocommerce-message").should('be.visible');
+     // Resultado esperado= Confirma a adição do item ao carrinho
+    cy.get('.product_title').should('contain', mensagem);
   }
 
   irParaCarrinho() {

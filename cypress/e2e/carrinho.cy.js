@@ -69,9 +69,10 @@ describe("Operações no carrinho", () => {
     productPage.compraProduto();
   });
 
+
   it("deve adicionar item no carrinho com sucesso", () => {
     let mensagem =
-      "\n                      Ver carrinho\n                      “Augusta Pullover Jacket” foi adicionado no\n                      seu carrinho.\n                    ";
+      "\n                            Augusta Pullover Jacket\n                          ";
     productPage.validaMensagemAdicionado(mensagem);
   });
 
@@ -89,5 +90,6 @@ describe("Operações no carrinho", () => {
     productPage.irParaCarrinho();
     carrinhoPage.removeItem();
     carrinhoPage.validaMensagemAdicionado(mensagem);
+    cy.get('.cart-empty').should('have.text', '\n                    Seu carrinho está vazio.\n                  ');
   });
 });

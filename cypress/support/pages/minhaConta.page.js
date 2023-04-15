@@ -1,3 +1,6 @@
+/// <reference types= "cypress" />
+
+
 class MinhaConta {
   preencheEmailSenha(email, senha) {
     cy.get("#reg_email").type(email);
@@ -10,10 +13,9 @@ class MinhaConta {
     cy.get(".button").contains("Register").click();
   }
 
-  verificaSucesso() {
-    cy.get(".woocommerce-MyAccount-navigation-link--dashboard > a").should(
-      "be.visible"
-    );
+  verificaSucesso(email = '') {
+    cy.get(".woocommerce-MyAccount-navigation-link--dashboard > a").should("be.visible");
+    cy.get('.woocommerce-MyAccount-content > :nth-child(2) > :nth-child(1)').should('contain', email);
   }
 
   verificaFalha() {

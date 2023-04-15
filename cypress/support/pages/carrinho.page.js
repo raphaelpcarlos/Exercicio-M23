@@ -5,7 +5,9 @@ class Carrinho {
   }
 
   validaMensagemAdicionado(mensagem) {
+    // Resultado esperado= Confirma a adição do item ao carrinho
     cy.get(".woocommerce-message").should('include.text', mensagem);
+    cy.get('.product-name > a').should('have.text', 'Augusta Pullover Jacket - XS, Blue');
   }
 
   removeItem() {
